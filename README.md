@@ -1,4 +1,4 @@
-## A Curated Collection of Code Puzzles
+## A Curated Collection of Code Challenges
 
 Each code puzzle is accompanied by the optimal solution and supporting analysis.
 
