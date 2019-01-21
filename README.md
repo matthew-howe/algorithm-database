@@ -1,2 +1,2 @@
 # codewars-kata-analysis
-codewars katas with solution and analysis
+codewars katas with solutions and analysis
