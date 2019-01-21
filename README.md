@@ -1,4 +1,4 @@
-## My Code Puzzle Collection
+## Code Puzzles Collection and Analysis
 
 Each puzzle will include a link to the source, as well as the optimal solution and analysis.
 
