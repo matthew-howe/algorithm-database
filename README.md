@@ -1,4 +1,4 @@
-## Code Puzzles Database and Analysis
+## Code Puzzle Database and Analysis
 
 Each puzzle will include a link to the source, as well as the optimal solution and analysis.
 
