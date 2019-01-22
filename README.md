@@ -1,9 +1,9 @@
-## A Curated Collection of Code Puzzles
+## Code Puzzle Database and Analysis
 
-Each code puzzle is accompanied by the optimal solution and supporting analysis.
+Each puzzle will include a link to the source, as well as the optimal solution and analysis.
 
-#### Algorithm Reference Guide
-* [Manacher's Algorithm](longest-palindrome.js) 
+#### List of Puzzles by Algorithm
+* [Manacher's Algorithm](/codewars/6-kyu/longest-palindrome.js) 
 
 #### Sources
 * [CodeWars](https://www.codewars.com)
