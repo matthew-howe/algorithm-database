@@ -28,23 +28,29 @@
 // CODEWARS ALGORITHM
 
 // create a helper function to repeat a string
-function repeat(str,x){return Array(x+1).join(str); }
+function repeat(str, x) {
+  return Array(x + 1).join(str);
+}
 // create a helper function to format the number of blank spaces, stars, and includes a line break
-function line(spaces,stars){ return repeat(" ",spaces)+repeat("*",stars)+"\n"; }
+function line(spaces, stars) {
+  return repeat(' ', spaces) + repeat('*', stars) + '\n';
+}
 
-function diamond(n){
+function diamond(n) {
   // if n is a positive odd number return null
-  if( n%2==0 || n<1 ) return null
+  if (n % 2 == 0 || n < 1) return null;
   // create a variable for an incrementer (x)
   // creating a variable for the new lines to add (add)
   // setting a varaible for the diameter of our diamond
-  var x=0, add, diam = line(x,n);
+  var x = 0,
+    add,
+    diam = line(x, n);
   // using a while loop to determine if our diamond needs more lines
-  while( (x+=2) < n ){
+  while ((x += 2) < n) {
     // if it does, add spaces equal to the number of times the while loop has run, and 2 less stars than the prev
-    add = line(x/2,n-x);
+    add = line(x / 2, n - x);
     // adding the lines we created above and below what we already have
-    diam = add+diam+add;
+    diam = add + diam + add;
   }
   return diam;
 }
