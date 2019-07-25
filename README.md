@@ -1,2 +1,2 @@
-Database of puzzles with my solutions.
+Database of algoriths with my solutions.
 
