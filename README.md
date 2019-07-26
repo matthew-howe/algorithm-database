@@ -1,2 +1,2 @@
-Database of algoriths with my solutions.
+Database of algorithms with my solutions.
 
