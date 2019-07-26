@@ -18,4 +18,3 @@ def merge_ranges(times):
 
     return merged_meetings
 
-print(merge_ranges([(0, 1), (3, 5), (4, 8), (10, 12), (9, 10)]))
