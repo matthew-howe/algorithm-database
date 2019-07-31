@@ -20,15 +20,17 @@ const fibIterative = (n) => {
 	let lastlast = 0;
 	let last = 1;
 	let current;
+	let fibs = [0, 1];
 
 	for (let i = 1; i < n; i++) {
 		current = lastlast + last;
 		lastlast = last;
 		last = current;
+		fibs.push(current);
 	}
 
-	return current;
+	return fibs;
 
 }
 
-console.log(fibIterative(2));
+console.log(fibIterative(5));
