@@ -44,23 +44,18 @@ const numSubarrayProductLessThanK = (nums, k) => {
 }
 
 const zzz = (nums, k) => {
-    console.log(nums);
     if (k <= 1) return 0;
     let product = 1;
     let count = 0;
     let left = 0;
 
     for (let right = 0; right < nums.length; right++) {
-        console.log('right++ ', right);
         product *= nums[right];
-        console.log('product = product * nums[right] -> new product: ', product);
         while (product >= k) {
             product /= nums[left++]
-            console.log('product = product / nums[left] -> new product: ', product, 'left++ ', left);
         }
 
         count += right - left + 1;
-        console.log('count = count + right - left + 1 -> new count: ', count);
 
 
     }
