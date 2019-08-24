@@ -11,6 +11,7 @@
 /*===========================================================================*/
 #include <iostream>
 #include <vector>
+using namespace std;
 
 bool findinOrderedSet(int target, const vector<int>& nums)
 {
