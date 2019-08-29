@@ -16,90 +16,118 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'x', 'f', 'g', 'h', 'j']
 class LRUCache {
     constructor (maxSize) {
         this.cache = {}; // hash of all the keys and their values
-        this.maxSize = maxSize || 1;
-        this.currentSize = 0;
-        this.listOfMostRecent = newDoublyLinkedList(); 
+        this.maxSize = maxSize || 1; // maximum size of the cache
+        this.currentSize = 0; // current size of the cache
+        this.listOfMostRecent = new DoublyLinkedList();
         // linked list functioning as a queue of the 
         // last recently used
     }
 
     // O(1) time | O(1) space
     insertKeyValuePair(key, value) {
-        if (!(key in this.cache)) {
-            if (this.currentSize === this.maxSize) {
-                this.evictLeastRecent();
+        if (!(key in this.cache)) { // if the key isn't in the cache
+            if (this.currentSize === this.maxSize) { // and the cache is full
+                this.evictLeastRecent(); // evict the least recently used
             } else {
 
-                this.currentSize++;
+                this.currentSize++; // if it's not full increase the size pointer
             }
-            this.cache[key] = new DoublyLinkedListNode(key, value);
+            this.cache[key] = new DoublyLinkedListNode(key, value); // add the node to the cache
         } else { 
 
-            this.replaceKey(key, value); 
+            this.replaceKey(key, value); // if the key is already in the cache call our replace function on it
         }
 
-        this.updateMostRecent(this.cache[key]);
+        this.updateMostRecent(this.cache[key]); // update the cache to reflect our latest read/write
     }
 
     // O(1) time | O(1) space
     getValueFromKey(key) {
         if (!(key in this.cache)) return null;
         
-        this.updateMostRecent(this.cache[key]);
-
-        return this.cache[key].value;
+        this.updateMostRecent(this.cache[key]); // update the cache to reflect our latest read/write
+        return this.cache[key].value; // return the value of the key in the cache
     }
 
     // O(1) time | O(1) space
     getMostRecentKey() {
-        return this.listOfMostRecent.head.key;
+        return this.listOfMostRecent.head.key; // the most recent key is the head of the linked list
     }
 
-    evictLeastRecent() {
-        const keyToRemove = this.listOfMostRecent.tail.key;
-        this.listOfMostRecent.removeTail();
-        delete this.cache[keyToRemove];
+    evictLeastRecent() { // the tail is the least recently used
+        const keyToRemove = this.listOfMostRecent.tail.key; // extract the key from the tail
+        this.listOfMostRecent.removeTail(); // call our remove tail function
+        delete this.cache[keyToRemove]; // delete the key from our cache
     }
 
     updateMostRecent(node) {
-        this.listOfMostRecent.setHeadTo(node);
+        this.listOfMostRecent.setHeadTo(node); // set the head of the linked list toThe given node
     }
 
     replaceKey(key, value) {
+
+        if (!(key in this.cache)) {
+            throw new Error("The provided key isn't in the cache!");
+        }
+
+        this.cache[key].value = value;
     }
 }
 
-class LRUCache2 {
-  constructor(maxSize) {
-    this.maxSize = maxSize || 1;
-		this.queue = [];
-		this.hash = {};
-  }
+class DoublyLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+    }
 
-  insertKeyValuePair(key, value) {
-		if (this.queue.length < this.maxSize) {
-            this.queue.unshift(key);
-            this.hash[key] = value;
+    setHeadTo(node) {
+        if (this.head === node) return;
+
+        if (this.head === null) {
+            this.head = node;
+            this.tail = node;
+        } else if (this.head === this.tail) {
+            this.tail.prev = node;
+            this.head = node;
+            this.head.next = this.tail;
         } else {
-            let least = this.queue.pop();
-            delete this.hash[least];
-            this.queue.unshift(key);
-            this.hash[key] = value;
+            if (this.tail === node) this.removeTail();
+            node.removeBindings();
+            this.head.prev = node;
+            node.next = this.head;
+            this.head = node;
         }
-  }
+    }
 
-  getValueFromKey(key) {
-    let index = this.queue.indexOf(key);
-		this.queue.splice(index, 1);
-		this.queue.unshift(key);
-		return this.hash[key];
-  }
-
-  getMostRecentKey() {
-    
-		return this.queue[0];
-  }
+    removeTail() {
+        if (this.tail === null) return;
+        if (this.tail === this.head) {
+            this.head = null;
+            this.tail = null;
+            return;
+        }
+        this.tail = this.tail.prev;
+        this.tail.next = null;
+    }
 }
+
+class DoublyLinkedListNode {
+    constructor(key, value) {
+        this.key = key;
+        this.value = value;
+        this.prev = null;
+        this.next = null;
+    }
+
+    removeBindings() {
+        if (this.prev !== null) {
+            this.next.prev = this.prev;
+        }
+    }
+}
+
+
+
 
 let lru = new LRUCache(9);
 lru.insertKeyValuePair('a', 1);
