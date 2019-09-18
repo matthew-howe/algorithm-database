@@ -1,7 +1,7 @@
 ## Algorithm Database
 A curated collection of algorithms with analysis.
 
-## Search and Sort Algorithms
+#### Search and Sort Algorithms
 
 |           C          |              C++             |      python      |   javascript   |        java        |      kotlin      |
 |:--------------------:|:----------------------------:|:----------------:|:--------------:|:------------------:|:----------------:|
