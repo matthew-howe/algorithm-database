@@ -12,21 +12,21 @@ A curated collection of algorithms with analysis.
 | [select.c][select-c] |                              |                  |                |                    |                  |
 | [insert.c][insert-c] |                              |                  |                |                    |                  |
 
-[bfs-c]:	 C/bfs.c
-[dfs-c]:	 C/dfs.c
-[bs-c]:		 C/bs.c
-[bubble-c]:	 C/bubble.c
-[select-c]:	 C/select.c
-[insert-c]:	 C/insert.c
-[djikstra-cpp]:	 C++/djikstra.cpp
-[shuffle-cpp]:	C++/shuffle.cpp
-[merge-cpp]:	C++/mergeSort.cpp
-[dfs-cpp]:		C++/dfs.cpp
-[bfs-py]:	 python/bfs.py
-[dfs-py]:	 python/dfs.py
-[bs-js]:	 javascript/bs.js
-[bub-js]:   javascript/bubble.js
-[bs-java]:	 java/bs.java
-[bsI-kt]:	 kotlin/bsI.kt
-[bsR-kt]:	 ktolin/bsR.kt
+[bfs-c]:	 search-and-sort-algorithms/C/bfs.c
+[dfs-c]:	 search-and-sort-algorithms/C/dfs.c
+[bs-c]:		 search-and-sort-algorithms/C/bs.c
+[bubble-c]:	 search-and-sort-algorithms/C/bubble.c
+[select-c]:	 search-and-sort-algorithms/C/select.c
+[insert-c]:	 search-and-sort-algorithms/C/insert.c
+[djikstra-cpp]:	 search-and-sort-algorithms/C++/djikstra.cpp
+[shuffle-cpp]:	search-and-sort-algorithms/C++/shuffle.cpp
+[merge-cpp]:	search-and-sort-algorithms/C++/mergeSort.cpp
+[dfs-cpp]:		search-and-sort-algorithms/C++/dfs.cpp
+[bfs-py]:	 search-and-sort-algorithms/python/bfs.py
+[dfs-py]:	 search-and-sort-algorithms/python/dfs.py
+[bs-js]:	 search-and-sort-algorithms/javascript/bs.js
+[bub-js]:   search-and-sort-algorithms/javascript/bubble.js
+[bs-java]:	 search-and-sort-algorithms/java/bs.java
+[bsI-kt]:	 search-and-sort-algorithms/kotlin/bsI.kt
+[bsR-kt]:	 search-and-sort-algorithms/ktolin/bsR.kt
 
