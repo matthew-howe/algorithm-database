@@ -8,3 +8,7 @@ public class Year {
               return number / 100 + 1;   
       }
 }
+
+// alternate
+
+// return (number + 99) / 100;
