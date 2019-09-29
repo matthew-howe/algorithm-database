@@ -15,7 +15,7 @@ const findInOrderedSet = (array, target) => {
 			ceiling = searchIdx - 1;
 		} else {
 			floor = searchIdx + 1;	
-		}
+    }
 	}
 	return false;
 }
