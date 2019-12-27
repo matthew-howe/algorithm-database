@@ -1,5 +1,5 @@
-## Algorithm Database
-A curated collection of algorithms with analysis.
+## Algorithms
+A collection of my implementations of various algorithms.
 
 ### Search and Sort Algorithms
 
