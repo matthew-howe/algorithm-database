@@ -2,6 +2,8 @@ const stock_prices = [10, 7, 5, 8, 11, 9];
 const stock_prices_profit = [10, 7, 5, 4, 8, 11, 9, 6, 12];
 const stock_prices_loss = [10, 7, 5, 4, 3, 1];
 
+
+
 const instructions =
   " find the difference between the lowest number and the highest number in consectutive order ";
 
