@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 /**
  * Class representing a node in the search tree.
@@ -13,19 +13,18 @@ class MonteCarloNode {
    * @param {Play[]} unexpandedPlays - The node's unexpanded child plays.
    */
   constructor(parent, play, state, unexpandedPlays) {
-
-    this.play = play
-    this.state = state
+    this.play = play;
+    this.state = state;
 
     // Monte Carlo stuff
-    this.n_plays = 0
-    this.n_wins = 0
+    this.n_plays = 0;
+    this.n_wins = 0;
 
     // Tree stuff
-    this.parent = parent
-    this.children = new Map()
+    this.parent = parent;
+    this.children = new Map();
     for (let play of unexpandedPlays) {
-      this.children.set(play.hash(), { play: play, node: null })
+      this.children.set(play.hash(), { play: play, node: null });
     }
   }
 
@@ -35,14 +34,13 @@ class MonteCarloNode {
    * @return {MonteCarloNode} The child node corresponding to the play given.
    */
   childNode(play) {
-    let child = this.children.get(play.hash())
+    let child = this.children.get(play.hash());
     if (child === undefined) {
-      throw new Error('No such play!')
+      throw new Error("No such play!");
+    } else if (child.node === null) {
+      throw new Error("Child is not expanded!");
     }
-    else if (child.node === null) {
-      throw new Error("Child is not expanded!")
-    }
-    return child.node
+    return child.node;
   }
 
   /**
@@ -55,10 +53,10 @@ class MonteCarloNode {
    * @return {MonteCarloNode} The new child node.
    */
   expand(play, childState, unexpandedPlays) {
-    if (!this.children.has(play.hash())) throw new Error("No such play!")
-    let childNode = new MonteCarloNode(this, play, childState, unexpandedPlays)
-    this.children.set(play.hash(), { play: play, node: childNode })
-    return childNode
+    if (!this.children.has(play.hash())) throw new Error("No such play!");
+    let childNode = new MonteCarloNode(this, play, childState, unexpandedPlays);
+    this.children.set(play.hash(), { play: play, node: childNode });
+    return childNode;
   }
 
   /**
@@ -66,11 +64,11 @@ class MonteCarloNode {
    * @return {Play[]} All plays.
    */
   allPlays() {
-    let ret = []
+    let ret = [];
     for (let child of this.children.values()) {
-      ret.push(child.play)
+      ret.push(child.play);
     }
-    return ret
+    return ret;
   }
 
   /**
@@ -78,11 +76,11 @@ class MonteCarloNode {
    * @return {Play[]} All unexpanded plays.
    */
   unexpandedPlays() {
-    let ret = []
+    let ret = [];
     for (let child of this.children.values()) {
-      if (child.node === null) ret.push(child.play)
+      if (child.node === null) ret.push(child.play);
     }
-    return ret
+    return ret;
   }
 
   /**
@@ -91,9 +89,9 @@ class MonteCarloNode {
    */
   isFullyExpanded() {
     for (let child of this.children.values()) {
-      if (child.node === null) return false
+      if (child.node === null) return false;
     }
-    return true
+    return true;
   }
 
   /**
@@ -101,19 +99,21 @@ class MonteCarloNode {
    * @return {boolean} Whether this node is a leaf in the tree.
    */
   isLeaf() {
-    if (this.children.size === 0) return true
-    else return false
+    if (this.children.size === 0) return true;
+    else return false;
   }
-  
+
   /**
    * Get the UCB1 value for this node.
    * @param {number} biasParam - The square of the bias parameter in the UCB1 algorithm, defaults to 2.
    * @return {number} The UCB1 value of this node.
    */
   getUCB1(biasParam) {
-    return (this.n_wins / this.n_plays) + Math.sqrt(biasParam * Math.log(this.parent.n_plays) / this.n_plays);
+    return (
+      this.n_wins / this.n_plays +
+      Math.sqrt((biasParam * Math.log(this.parent.n_plays)) / this.n_plays)
+    );
   }
-
 }
 
-module.exports = MonteCarloNode
+module.exports = MonteCarloNode;
