@@ -24,3 +24,4 @@ const fib = n => {
 }
 
 console.log(fib(5));
+∏
