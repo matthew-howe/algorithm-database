@@ -28,15 +28,14 @@ let z = 0;
 const vld = (p) => {
     let vals = p.split(' ');
     let minmax = vals[0].split('-');
-    let min = minmax[0];
-    let max = minmax[1];
+    let min = Number(minmax[0]) - 1;
+    let max = Number(minmax[1]) - 1;
     let char = vals[1][0];
     let str = vals[2];
-    let count = 0
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === char) count++;
-    }
-    return count >= min && count <= max;
+
+    if (str[min] === char && str[max] === char) return false;
+    else if (str[min] === char || str[max] === char) return true;
+    else return false;
 }
 
 for (let i = 0; i < y.length; i++) {
